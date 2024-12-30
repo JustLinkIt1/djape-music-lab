@@ -1,0 +1,96 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #1E1E2E;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+header {
+    padding: 20px;
+    background: linear-gradient(135deg, #6A11CB 0%, #2575FC 100%);
+    color: white;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+header p {
+    margin: 5px 0 20px;
+    font-size: 1.2em;
+}
+
+/* Main Section */
+main {
+    padding: 20px;
+}
+
+.input-section {
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 10px;
+    width: 60%;
+    max-width: 400px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    background: #4CAF50;
+    color: white;
+}
+
+button:hover {
+    background: #388E3C;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    background: #FF9800;
+    border-radius: 5px;
+}
+
+a:hover {
+    background: #E68900;
+}
+
+/* Controls */
+.controls {
+    margin: 30px 0;
+}
+
+/* Visualizer */
+.visualizer {
+    margin-top: 40px;
+}
+
+canvas {
+    width: 80%;
+    max-width: 600px;
+    height: 200px;
+    background: #333;
+    border-radius: 10px;
+}
+
+/* Footer */
+footer {
+    margin-top: 50px;
+    padding: 10px;
+    font-size: 0.9em;
+    background: #121212;
+    color: #aaa;
+}
