@@ -1,4 +1,4 @@
-const API_URL = 'https://ab.onrender.com';
+const API_URL = 'https://djape-music-lab.onrender.com';
 
 export const generateMusic = async (prompt) => {
     try {
