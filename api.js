@@ -1,8 +1,5 @@
-// api.js
+const API_URL = 'https://ab.onrender.com';
 
-const API_URL = 'https://djape-music-lab.onrender.com';
-
-// Generate Music from Backend
 export const generateMusic = async (prompt) => {
     try {
         const response = await fetch(`${API_URL}/generate-music/`, {
