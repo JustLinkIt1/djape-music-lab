@@ -4,21 +4,21 @@ from fastapi.responses import RedirectResponse
 from mido import MidiFile, MidiTrack, Message
 
 # Initialize FastAPI App
-app = FastAPI()
+app = FastAPI(docs_url=None, redoc_url=None)  # Disable Swagger UI
 
-# Enable CORS (for frontend access)
+# Enable CORS for frontend communication
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allow all origins (adjust in production)
+    allow_origins=["*"],  # Adjust this for production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Root Route (Redirect to API docs if accessed directly)
+# Root Route - Redirect to API docs if directly accessed
 @app.get("/", include_in_schema=False)
 async def root():
-    return RedirectResponse(url="/docs")
+    return {"message": "Welcome to the DJAPE Backend! Use the frontend app for interaction."}
 
 # Music Generation Endpoint
 @app.post("/generate-music/")
