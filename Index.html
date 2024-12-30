@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DJAPE Music Lab</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #1E1E2E; color: white; }
+        button, input { margin: 10px; padding: 10px; }
+    </style>
+</head>
+<body>
+    <h1>🎧 DJAPE Music Lab 🎵</h1>
+    <input id="prompt" type="text" placeholder="Describe your melody or beat..." />
+    <button onclick="generateMusic()">Generate Music</button>
+    <button onclick="playMusic()">Play</button>
+    <a id="downloadLink" style="display:none;" download="generated_song.mid">Download MIDI</a>
+    <button onclick="shareOnTwitter()">Share on Twitter</button>
+
+    <script>
+        let midiUrl;
+
+        async function generateMusic() {
+            const prompt = document.getElementById('prompt').value || 'simple melody';
+            const response = await fetch('https://c4077dd2-52b3-41b5-a924-eef3de96a25c-00-1qrlpxpt2f9f8.kirk.replit.dev/generate-music/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ prompt })
+            });
+            const blob = await response.blob();
+            midiUrl = URL.createObjectURL(blob);
+
+            document.getElementById('downloadLink').href = midiUrl;
+            document.getElementById('downloadLink').style.display = 'inline';
+        }
+
+        function playMusic() {
+            const audio = new Audio(midiUrl);
+            audio.play();
+        }
+
+        function shareOnTwitter() {
+            const text = encodeURIComponent('Check out this AI-generated song from DJAPE Music Lab!');
+            const url = encodeURIComponent(midiUrl);
+            window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank');
+        }
+    </script>
+</body>
+</html>
